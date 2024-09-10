@@ -1,1 +1,3 @@
-Z
+echo "Z" > z
+cat z
+z
