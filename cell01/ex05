@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            height: 100px;
+            width: 50%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .first-cell {
+            background-color: rgb(252, 114, 114);
+        }
+        .second-cell {
+            background-color: rgb(106, 130, 255);
+        }
+    </style>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td class="first-cell">Hello world</td>
+            <td class="second-cell">English or Spanish</td>
+        </tr>
+    </table>
+
+</body>
+</html>
