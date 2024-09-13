@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics</title>
+    <style>
+        body {
+            background-color: rgb(245, 129, 148);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: white;
+            font-size: 60px;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .images img {
+            width: 300px;
+            height: auto;
+        }
+        hr {
+            margin: 20px auto;
+            width: 80%;
+        }
+        .footer {
+            font-family: monospace;
+            font-style: italic;
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GENTLEWOMAN</h1>
+    
+    <div class="images">
+        <div>
+            <a href="https://www.gentlewomanonline.com/product/1094826" target="_blank">
+                <img src="https://gentlewoman-image.imgix.net/product-images/1725873269028.jpg?fm=webp&w=650&h=975">
+            </a>
+            <p><a href="https://www.gentlewomanonline.com/product/1094826" target="_blank">Blushing Playmate Cardigan</a></p>
+        </div>
+        <div>
+            <a href="https://www.gentlewomanonline.com/product/1095151" target="_blank">
+                <img src="https://gentlewoman-image.imgix.net/product-images/1725872993057.jpg?fm=webp&w=650&h=975" alt="Shop 2">
+            </a>
+            <p><a href="https://www.gentlewomanonline.com/product/1095151" target="_blank">Fancy Lolipop Maxi Skirt</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer">
+        &copy; MyShop, 2024
+    </div>
+
+</body>
+</html>
 
