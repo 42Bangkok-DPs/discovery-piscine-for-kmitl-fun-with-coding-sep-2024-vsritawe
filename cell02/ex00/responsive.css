@@ -1,0 +1,22 @@
+
+html, body {
+    height: 100%;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse:collapse;
+    table-layout: fixed;
+}
+td{
+    font-size: 48px;
+    text-align: center;
+    border: 1px solid black;
+}
+.first-cell {
+    background-color: blue;
+}
+.second-cell {
+    background-color: coral;
+}
