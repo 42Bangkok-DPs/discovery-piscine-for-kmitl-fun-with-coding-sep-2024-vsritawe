@@ -27,8 +27,8 @@
 
     <table border="1">
         <tr>
-            <td class="first-cell">Hello world</td>
-            <td class="second-cell">English or Spanish</td>
+            <td class="first-cell">Primary</td>
+            <td class="second-cell">Secondary</td>
         </tr>
     </table>
 
