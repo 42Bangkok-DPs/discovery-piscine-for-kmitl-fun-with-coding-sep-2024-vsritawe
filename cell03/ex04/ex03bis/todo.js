@@ -1,73 +1,59 @@
 $(document).ready(function() {
-    //load todo from cookies
-    loadToDoList();
-
-    //load and display todo from cookies
-    function loadToDoList() {
-        const todos = getCookie('todoList');
-        if (todos) {
-            const todoArray = JSON.parse(todos);
-            todoArray.forEach(todo => addTodoToDOM(todo));
-        }
+    // Function to get cookies (if needed)
+    function getCookies() {
+        const cookies = document.cookie.split('; ');
+        let cookieObj = {};
+        cookies.forEach(cookie => {
+            let [key, value] = cookie.split('=');
+            cookieObj[key] = decodeURIComponent(value);
+        });
+        return cookieObj;
     }
 
-    // save todo into cookies
-    function saveToDoList() {
-        const todoItems = $('.todo-item');
-        const todoArray = todoItems.map(function() {
-            return $(this).text();
-        }).get();
-
-        setCookie('todoList', JSON.stringify(todoArray));
+    // Function to set a cookie (if needed)
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
     }
 
-    //add new todo to DOM
+    // Function to save todos to localStorage
+    function saveTodos() {
+        const todos = [];
+        $('.todo-item').each(function() {
+            todos.push($(this).text());
+        });
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    // Function to load todos from localStorage
+    function loadTodos() {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        todos.forEach(todo => addTodoToDOM(todo));
+    }
+
+    // Function to add a new todo to the DOM
     function addTodoToDOM(todoText) {
-        const $ftList = $('#ft_list');
-        const $todoDiv = $('<div></div>').addClass('todo-item').text(todoText);
-
-        // remove todo on confirmation
-        $todoDiv.click(function() {
-            const confirmation = confirm('Do you want to remove this task?');
-            if (confirmation) {
+        const todoDiv = $('<div></div>').addClass('todo-item').text(todoText);
+        todoDiv.on('click', function() {
+            if (confirm('Do you want to remove this TO DO?')) {
                 $(this).remove();
-                saveToDoList();
+                saveTodos();
             }
         });
-
-        // add new todo at the top
-        $ftList.prepend($todoDiv);
+        $('#ft_list').prepend(todoDiv);
     }
 
-    // create new todo
-    $('#New').click(function() {
-        const newTodo = prompt('Enter a new TO DO:');
-        if (newTodo && newTodo.trim()) {
-            addTodoToDOM(newTodo.trim());
-            saveToDoList();
+    // Event handler for the "New" button
+    $('#new').on('click', function() {
+        const todoText = prompt('Enter a new TO DO:');
+        if (todoText) {
+            addTodoToDOM(todoText);
+            saveTodos();
         }
     });
 
-    //get a cookie by name
-    function getCookie(name) {
-        const cookieArr = document.cookie.split(';');
-        for (let i = 0; i < cookieArr.length; i++) {
-            const cookiePair = cookieArr[i].split('=');
-            if (name == cookiePair[0].trim()) {
-                return decodeURIComponent(cookiePair[1]);
-            }
-        }
-        return null;
-    }
-
-    //set a cookie with a name, value, and day
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = `expires=${date.toUTCString()};`;
-        }
-        document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}path=/`;
-    }
+    // Load todos when the page loads
+    loadTodos();
 });
