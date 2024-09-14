@@ -42,7 +42,7 @@
 
     <div class="calculator">
         <!-- Left input -->
-        <input type="number" id="leftOperand" placeholder="Left operand" min="0">
+        <input type="text" id="leftOperand" placeholder="Left operand" min="0">
         
         <!-- Select field for operators -->
         <select id="operator">
@@ -54,7 +54,7 @@
         </select>
 
         <!-- Right input -->
-        <input type="number" id="rightOperand" placeholder="Right operand" min="0">
+        <input type="text" id="rightOperand" placeholder="Right operand" min="0">
 
         <!-- Submit button -->
         <input type="button" id="submitBtn" value="Try me!">
@@ -70,7 +70,7 @@
             const rightOperand = document.getElementById('rightOperand').value;
 
             // Ensure both inputs are positive integers
-            if (leftOperand === '' || rightOperand === '' || leftOperand < 0 || rightOperand < 0) {
+            if (leftOperand === '' || rightOperand === '' || leftOperand < 0 || rightOperand < 0 || isNaN(leftOperand) || isNaN(rightOperand)) {
                 alert('Error :(');
                 return;
             }
