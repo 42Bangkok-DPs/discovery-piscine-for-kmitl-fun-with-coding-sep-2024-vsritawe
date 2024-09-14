@@ -1,44 +1,19 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        table {
-        width: 100%; 
-        border-collapse: collapse;
-    }
-    
-    td {
-        height: 100px;
-        width: 50%;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    
-    .first-cell {
-        background-color: lightgreen;
-    }
-    
-    .second-cell {
-        background-color: lightcoral;
-    }
-    
-    @media (max-width: 600px) {
-        td {
-            display: block; 
-            width: 100%; 
-            margin-bottom: 10px;
-        }
-    }
-    </style>
-</head>
-<body>
-    <table border="1">
-        <tr>
-            <td class="first-cell">Hello world</td>
-            <td class="second-cell">English or Spanish</td>
-        </tr>
-    </table>
-</body>
+</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Table</title>
+        <link rel="stylesheet" href="responsive.css">
+    </head>
+    <body>
+    <div style="overflow-x: auto;">
+        <table>
+            <tr>
+                <td class="first-cell">Hello</td>
+                <td class="second-cell">World</td>
+            </tr>
+        </table>
+    </div>
+    </body>
 </html>
