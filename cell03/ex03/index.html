@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO DO List</title>
-    <script src="todo.js" defer></script>
+    <title>To-do List</title>
+    <style>
+        #ft_list {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 10px;
+            min-height: 50px;
+        }
+        .todo-item {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body style="text-align: center;">
-    <h1>TO DO List</h1>
-    <button id="New">New</button>
+<body>
+    <button id="new">New</button>
     <div id="ft_list"></div>
-
+    <script src="todo.js"></script>
 </body>
 </html>
