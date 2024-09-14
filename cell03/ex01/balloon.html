@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Balloon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
 
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon"></div>
+
+    <script>
+        const balloon = document.getElementById('balloon');
+        let size = 200;
+        let colors = ['red', 'green', 'blue'];
+        let colorIndex = 0;
+
+        // Function to update balloon size and color
+        function updateBalloon() {
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            balloon.style.backgroundColor = colors[colorIndex];
+        }
+
+        // Function to handle click event (grow the balloon)
+        balloon.addEventListener('click', () => {
+            if (size >= 420) {
+                // Balloon pops and returns to original size and color
+                size = 200;
+                colorIndex = 0;
+            } else {
+                // Grow the balloon by 10px
+                size += 10;
+                // Change color in sequence
+                colorIndex = (colorIndex + 1) % colors.length;
+            }
+            updateBalloon();
+        });
+
+        // Function to handle mouseleave event (shrink the balloon)
+        balloon.addEventListener('mouseleave', () => {
+            if (size > 200) {
+                size -= 5;
+            }
+            // Change color in reverse sequence
+            colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+            updateBalloon();
+        });
+    </script>
+
+</body>
+</html>
