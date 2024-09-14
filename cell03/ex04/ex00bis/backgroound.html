@@ -34,7 +34,7 @@
     <button id="changeColorBtn">Change Background Color</button>
 
     <script>
-        // Function to generate a random color in hex format
+
         function getRandomColor() {
             let letters = '0123456789ABCDEF';
             let color = '#';
@@ -44,7 +44,6 @@
             return color;
         }
 
-        // Add event listener using jQuery
         $(document).ready(function() {
             $('#changeColorBtn').on('click', function() {
                 $('body').css('background-color', getRandomColor());
